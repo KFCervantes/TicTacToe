@@ -19,6 +19,7 @@ int count(const char &c, const std::string &board){
 bool three_in_row(const char &xo, const std::string &board){
 	if(count(xo, board) < 3) return false;
 	
+	//bools are true if that winning condition is met
 	const bool r0((board.at(0) == xo) && (board.at(1) == xo) && (board.at(2) == xo));
 	const bool r1((board.at(3) == xo) && (board.at(4) == xo) && (board.at(5) == xo));
 	const bool r2((board.at(6) == xo) && (board.at(7) == xo) && (board.at(8) == xo));
@@ -36,11 +37,14 @@ std::set<std::string> next_moves(const std::string &board){
 	
 	const int &number_of_spaces(count(' ', board));
 	
-	if (!(three_in_row('X', board) || three_in_row('O', board)) && number_of_spaces){//returns empty set if board is a win or draw
+	//returns empty set if board is a win or draw
+	if (!(three_in_row('X', board) || three_in_row('O', board)) && number_of_spaces){
+		//turn is based off of how many empty spaces are left
 		char xo;
-		(number_of_spaces % 2) ? (xo = 'X') : (xo = 'O');//turn is based off of how many empty spaces are left
+		(number_of_spaces % 2) ? (xo = 'X') : (xo = 'O');
 		
-		for (int i(0); i < 9; ++i){//boards will all have length 9
+		//boards will all have length 9
+		for (int i(0); i < 9; ++i){
 			if (board.at(i) == ' '){
 				std::string next_move(board);
 				next_move[i] = xo;
@@ -54,24 +58,38 @@ std::set<std::string> next_moves(const std::string &board){
 
 std::pair<std::string, int> minimax(const std::string &board){
 	
-	if (three_in_row('X', board)) return std::pair<std::string, int>(board, 1);//int is 1 if X wins
-	if (three_in_row('O', board)) return std::pair<std::string, int>(board, -1);//int is -1 if O wins
+	//int is 1 if X wins
+	if (three_in_row('X', board)) return std::pair<std::string, int>(board, 1);
+	
+	//int is -1 if O wins
+	if (three_in_row('O', board)) return std::pair<std::string, int>(board, -1);
 	
 	const int &number_of_spaces(count(' ', board));
 	
+	//draw if no spaces are left
 	if (!number_of_spaces) return std::pair<std::string, int>(board, 0);//int is 0 if draw
 	
+	//if base conditions are not met the set will have 1-9 moves in it
 	const std::set<std::string> &s(next_moves(board));
 	
+	//recursively finds the next best move through 1-9 branches each time
+	
+	//i is an iterator to the first item
 	auto i(s.begin());
+	//sets move equal to the value of the first item
 	std::string move(*i);
+	//sets the int equal to the best garenteed outcome from that move
 	int min_or_max(minimax(move).second);
+	//if the is only 1 move next i becomes equal to s.end() and for loops will not run
 	++i;
 	
+	//if the number of spaces is odd assumes the next best move will be in X's favor
 	if (number_of_spaces % 2){
+		//i was already initialized
 		for (; i != s.end(); ++i){
 			const std::string &this_move(*i);
 			const int &this_min_or_max(minimax(this_move).second);
+			//max comparison
 			if (this_min_or_max > min_or_max){
 				min_or_max = this_min_or_max;
 				move = this_move;
@@ -81,9 +99,11 @@ std::pair<std::string, int> minimax(const std::string &board){
 		return std::pair<std::string, int>(move, min_or_max);
 	}
 	
+	//if the number of spaces is even assumes the next best move will be in O's favor
 	for (; i != s.end(); ++i){
 		const std::string &this_move(*i);
 		const int &this_min_or_max(minimax(this_move).second);
+		//min comparison
 		if (this_min_or_max < min_or_max){
 			min_or_max = this_min_or_max;
 			move = this_move;
