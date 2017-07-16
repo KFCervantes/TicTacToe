@@ -14,6 +14,8 @@
 		67DC46F51F1B6DA000FB2584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67DC46F31F1B6DA000FB2584 /* LaunchScreen.storyboard */; };
 		67DC47001F1B6DA000FB2584 /* Tic_Tac_ToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC46FF1F1B6DA000FB2584 /* Tic_Tac_ToeTests.swift */; };
 		67DC470B1F1B6DA000FB2584 /* Tic_Tac_ToeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DC470A1F1B6DA000FB2584 /* Tic_Tac_ToeUITests.swift */; };
+		67DC471B1F1B701E00FB2584 /* ttt_cpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 67DC471A1F1B701E00FB2584 /* ttt_cpp.cpp */; };
+		67DC471D1F1B703B00FB2584 /* wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 67DC471C1F1B703B00FB2584 /* wrapper.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,11 @@
 		67DC47061F1B6DA000FB2584 /* Tic Tac ToeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tic Tac ToeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67DC470A1F1B6DA000FB2584 /* Tic_Tac_ToeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tic_Tac_ToeUITests.swift; sourceTree = "<group>"; };
 		67DC470C1F1B6DA000FB2584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67DC47181F1B700400FB2584 /* ttt_cpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ttt_cpp.h; sourceTree = "<group>"; };
+		67DC47191F1B701E00FB2584 /* Tic Tac Toe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tic Tac Toe-Bridging-Header.h"; sourceTree = "<group>"; };
+		67DC471A1F1B701E00FB2584 /* ttt_cpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ttt_cpp.cpp; sourceTree = "<group>"; };
+		67DC471C1F1B703B00FB2584 /* wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wrapper.mm; sourceTree = "<group>"; };
+		67DC471E1F1B704B00FB2584 /* wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrapper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				67DC46EA1F1B6DA000FB2584 /* AppDelegate.swift */,
+				67DC47181F1B700400FB2584 /* ttt_cpp.h */,
+				67DC471A1F1B701E00FB2584 /* ttt_cpp.cpp */,
+				67DC471E1F1B704B00FB2584 /* wrapper.h */,
+				67DC471C1F1B703B00FB2584 /* wrapper.mm */,
+				67DC47191F1B701E00FB2584 /* Tic Tac Toe-Bridging-Header.h */,
 				67DC46EC1F1B6DA000FB2584 /* ViewController.swift */,
 				67DC46EE1F1B6DA000FB2584 /* Main.storyboard */,
 				67DC46F11F1B6DA000FB2584 /* Assets.xcassets */,
@@ -193,6 +205,7 @@
 				TargetAttributes = {
 					67DC46E61F1B6DA000FB2584 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					67DC46FA1F1B6DA000FB2584 = {
@@ -260,7 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				67DC46ED1F1B6DA000FB2584 /* ViewController.swift in Sources */,
+				67DC471D1F1B703B00FB2584 /* wrapper.mm in Sources */,
 				67DC46EB1F1B6DA000FB2584 /* AppDelegate.swift in Sources */,
+				67DC471B1F1B701E00FB2584 /* ttt_cpp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,10 +427,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Tic Tac Toe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Tic-Tac-Toe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tic Tac Toe/Tic Tac Toe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -424,10 +442,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Tic Tac Toe/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Tic-Tac-Toe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tic Tac Toe/Tic Tac Toe-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
