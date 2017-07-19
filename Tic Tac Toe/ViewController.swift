@@ -43,7 +43,7 @@ class ViewController: UIViewController {
 				board.change_at(x_index, with: "X")
 			}
 			
-			if !wrapper.game_over(board) {
+			if (!wrapper.game_over(board) && (wrapper.whose_turn(board) == "O")) {
 				var buttons: [UIButton] = [
 					button_0,
 					button_1,
@@ -63,6 +63,28 @@ class ViewController: UIViewController {
 		}
 	}
 
+	@IBAction func reset(_ sender: UIButton) {
+		if board != "         " {
+			let buttons: [UIButton] = [
+				button_0,
+				button_1,
+				button_2,
+				button_3,
+				button_4,
+				button_5,
+				button_6,
+				button_7,
+				button_8
+			]
+			
+			for button in buttons {
+				button.setImage(nil, for: .normal)
+			}
+			
+			board = "         "
+		}
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.

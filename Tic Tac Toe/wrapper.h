@@ -18,6 +18,9 @@
 //returns the index of where the next move should be
 + (int) next_best_move_index:(NSString *)board;
 
+//returns the character whose turn it is
++ (NSString *) whose_turn:(NSString *)board;
+
 @end
 
 #endif /* wrapper_h */

@@ -48,4 +48,12 @@
 	return ans;
 }
 
++ (NSString *) whose_turn:(NSString *)board {
+	const std::string std_board([board UTF8String]);
+	const int &number_of_spaces(count(' ', std_board));
+	std::string xo;
+	(number_of_spaces % 2) ? (xo = "X") : (xo = "O");
+	return [NSString stringWithUTF8String:xo.c_str()];
+}
+
 @end
