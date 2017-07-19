@@ -22,6 +22,8 @@ extension String {
 class ViewController: UIViewController {
 	
 	var board = "         "
+	var player: Character = "X"
+	var cpu: Character = "O"
 	
 	@IBOutlet weak var button_0: UIButton!
 	@IBOutlet weak var button_1: UIButton!
@@ -35,15 +37,18 @@ class ViewController: UIViewController {
 	
 	@IBAction func player_move(_ sender: UIButton) {
 		if !wrapper.game_over(board) {
-			let x_index = sender.tag
+			let player_move_index = sender.tag
 			
-			if board.at(x_index) == " " {
-				let x_img = UIImage(named: "X.png")
-				sender.setImage(x_img, for: .normal)
-				board.change_at(x_index, with: "X")
+			if board.at(player_move_index) == " " {
+				let player_char_file = String(player) + ".png"
+				let player_char_img = UIImage(named: player_char_file)
+				sender.setImage(player_char_img, for: .normal)
+				board.change_at(player_move_index, with: player)
 			}
 			
-			if (!wrapper.game_over(board) && (wrapper.whose_turn(board) == "O")) {
+			let cpu_str = String(cpu)
+			
+			if (!wrapper.game_over(board) && (wrapper.whose_turn(board) == cpu_str)) {
 				var buttons: [UIButton] = [
 					button_0,
 					button_1,
@@ -55,15 +60,18 @@ class ViewController: UIViewController {
 					button_7,
 					button_8
 				]
-				let o_index = Int(wrapper.next_best_move_index(board))
-				let o_img = UIImage(named: "O.png")
-				buttons[o_index].setImage(o_img, for: .normal)
-				board.change_at(o_index, with: "O")
+				let cpu_move_index = Int(wrapper.next_best_move_index(board))
+				let cpu_char_file = cpu_str + ".png"
+				let cpu_char_img = UIImage(named: cpu_char_file)
+				buttons[cpu_move_index].setImage(cpu_char_img, for: .normal)
+				board.change_at(cpu_move_index, with: cpu)
 			}
 		}
 	}
 
-	@IBAction func reset(_ sender: UIButton) {
+	@IBAction func x_reset(_ sender: UIButton) {
+		player = "X"
+		cpu = "O"
 		if board != "         " {
 			let buttons: [UIButton] = [
 				button_0,
@@ -83,6 +91,33 @@ class ViewController: UIViewController {
 			
 			board = "         "
 		}
+	}
+	
+	@IBAction func O_reset(_ sender: UIButton) {
+		player = "O"
+		cpu = "X"
+		var buttons: [UIButton] = [
+			button_0,
+			button_1,
+			button_2,
+			button_3,
+			button_4,
+			button_5,
+			button_6,
+			button_7,
+			button_8
+		]
+		if board != "         " {
+			for button in buttons {
+				button.setImage(nil, for: .normal)
+			}
+			
+			board = "         "
+		}
+		let x_index = Int(wrapper.next_best_move_index(board))
+		let x_img = UIImage(named: "X.png")
+		buttons[x_index].setImage(x_img, for: .normal)
+		board.change_at(x_index, with: "X")
 	}
 	
 	override func viewDidLoad() {

@@ -88,12 +88,21 @@
                                     <action selector="player_move:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyv-RJ-OZC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2s-PD-mAZ">
-                                <rect key="frame" x="137" y="547" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSN-fV-7na">
+                                <rect key="frame" x="10" y="547" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="reset"/>
+                                <state key="normal" image="X"/>
                                 <connections>
-                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I03-pq-nEB"/>
+                                    <action selector="X_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0T-lv-5Ix"/>
+                                    <action selector="x_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MrQ-8x-Plw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3c-vh-MCs">
+                                <rect key="frame" x="259" y="547" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="O"/>
+                                <connections>
+                                    <action selector="O_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xQy-5N-Rcf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,7 +126,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="O" width="100" height="100"/>
+        <image name="X" width="100" height="100"/>
         <image name="board" width="375" height="375"/>
-        <image name="reset" width="100" height="100"/>
     </resources>
 </document>
