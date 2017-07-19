@@ -12,6 +12,7 @@
 @implementation wrapper
 
 + (bool) game_over:(NSString *)board {
+	//convert makes a copy of board that is std::string
 	const std::string std_board([board UTF8String]);
 	const int &number_of_spaces(count(' ', std_board));
 	
@@ -20,17 +21,8 @@
 	//sets xo to the character that just went
 	(number_of_spaces % 2) ? (xo = 'O') : (xo = 'X');
 	
-	//returns true if that player wins
-	if (three_in_row(xo, std_board)){
-		std::cout << "Player " << xo << " wins" << std::endl;
-		return true;
-	}
-	
-	//returns true if the game is a draw
-	if (!number_of_spaces){
-		std::cout << "draw" << std::endl;
-		return true;
-	}
+	//returns true if someone wins or if game is draw
+	if (three_in_row(xo, std_board) || !number_of_spaces) return true;
 	
 	return false;
 }

@@ -9,7 +9,7 @@
 #ifndef ttt_cpp_h
 #define ttt_cpp_h
 
-#include <iostream>
+#include <string>
 #include <set>
 
 //returns the number of times a character occurs in a string

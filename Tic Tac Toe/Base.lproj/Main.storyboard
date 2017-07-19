@@ -53,13 +53,6 @@
                                     <action selector="player_move:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K3R-Ff-aUm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frm-e2-XMU">
-                                <rect key="frame" x="137" y="283" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="player_move:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jkz-YF-9ea"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1m2-na-iMu">
                                 <rect key="frame" x="259" y="283" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -88,21 +81,27 @@
                                     <action selector="player_move:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyv-RJ-OZC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSN-fV-7na">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnp-fb-wVY">
                                 <rect key="frame" x="10" y="547" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="X"/>
                                 <connections>
-                                    <action selector="X_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a0T-lv-5Ix"/>
-                                    <action selector="x_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MrQ-8x-Plw"/>
+                                    <action selector="x_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nml-r5-7m9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3c-vh-MCs">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zV-wL-8CB">
                                 <rect key="frame" x="259" y="547" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="O"/>
                                 <connections>
-                                    <action selector="O_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xQy-5N-Rcf"/>
+                                    <action selector="o_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86n-Cz-bXU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frm-e2-XMU">
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="player_move:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jkz-YF-9ea"/>
                                 </connections>
                             </button>
                         </subviews>

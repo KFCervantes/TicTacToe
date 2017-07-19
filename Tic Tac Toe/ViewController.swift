@@ -68,7 +68,7 @@ class ViewController: UIViewController {
 			}
 		}
 	}
-
+	
 	@IBAction func x_reset(_ sender: UIButton) {
 		player = "X"
 		cpu = "O"
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
 		}
 	}
 	
-	@IBAction func O_reset(_ sender: UIButton) {
+	@IBAction func o_reset(_ sender: UIButton) {
 		player = "O"
 		cpu = "X"
 		var buttons: [UIButton] = [
