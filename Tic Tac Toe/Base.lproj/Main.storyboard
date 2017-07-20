@@ -91,7 +91,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnp-fb-wVY">
                                 <rect key="frame" x="10" y="547" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="X"/>
+                                <state key="normal" image="X" backgroundImage="highlight"/>
                                 <connections>
                                     <action selector="x_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nml-r5-7m9"/>
                                 </connections>
@@ -104,6 +104,10 @@
                                     <action selector="o_reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86n-Cz-bXU"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bW9-5h-cUj">
+                                <rect key="frame" x="77" y="28" width="220" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -117,6 +121,9 @@
                         <outlet property="button_6" destination="ZvZ-MD-1eq" id="2SZ-TS-beC"/>
                         <outlet property="button_7" destination="DW5-B9-wjK" id="GLR-Vx-OoF"/>
                         <outlet property="button_8" destination="w4U-hf-SHH" id="05k-3k-EjT"/>
+                        <outlet property="game_over_message" destination="bW9-5h-cUj" id="Y1X-pP-Ro2"/>
+                        <outlet property="select_o" destination="8zV-wL-8CB" id="QOs-Ux-uQ4"/>
+                        <outlet property="select_x" destination="gnp-fb-wVY" id="12C-fn-Oxr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -128,5 +135,6 @@
         <image name="O" width="100" height="100"/>
         <image name="X" width="100" height="100"/>
         <image name="board" width="375" height="375"/>
+        <image name="highlight" width="100" height="100"/>
     </resources>
 </document>
