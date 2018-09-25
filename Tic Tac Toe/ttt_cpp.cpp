@@ -56,6 +56,23 @@ std::set<std::string> next_moves(const std::string &board){
 	return ans;
 }
 
+int next_random_move_index(const std::string &board){
+	int ans;
+	std::vector<int> v;
+	for (ans = 0; ans < 9; ++ans)
+		if (board.at(ans) == ' ')
+			v.push_back(ans);
+	const int upper(int(v.size()) - 1);
+	if (v.empty())
+		return ans;
+	if (v.size() == 1)
+		return v.at(0);
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(0, upper);
+	return v.at(dis(gen));
+}
+
 std::pair<std::string, int> minimax(const std::string &board){
 	
 	//int is 1 if X wins

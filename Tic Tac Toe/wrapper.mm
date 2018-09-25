@@ -27,7 +27,35 @@
 	return false;
 }
 
-+ (int) next_best_move_index:(NSString *)board {
++ (int) next_easy_move_index:(NSString *)board {return next_random_move_index([board UTF8String]);}
+
++ (int) next_medi_move_index:(NSString *)board {
+	const std::string std_board([board UTF8String]);
+	const int &number_of_spaces(count(' ', std_board));
+	if ((1 < number_of_spaces) && (number_of_spaces < 7)){
+		const std::set<std::string> &s(next_moves(std_board));
+		char xo;
+		(number_of_spaces % 2) ? (xo = 'X') : (xo = 'O');
+		for (const auto &e : s)
+			if (three_in_row(xo, e))
+				for (int i(0); i < 9; ++i)
+					if (e.at(i) != std_board.at(i))
+						return i;
+		
+		char other_xo;
+		(xo == 'X') ? (other_xo = 'O') : (other_xo = 'X');
+		for (const auto &e : s)
+			for (const auto &f : next_moves(e))
+				if (three_in_row(other_xo, f))
+					for (int i(0); i < 9; ++i)
+						if ((std_board.at(i) != f.at(i)) && (f.at(i) == other_xo))
+							return i;
+	}
+	
+	return next_random_move_index(std_board);
+}
+
++ (int) next_hard_move_index:(NSString *)board {
 	const std::string std_board([board UTF8String]);
 	
 	//selects next move using minimax algorithm

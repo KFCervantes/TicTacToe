@@ -11,6 +11,8 @@
 
 #include <string>
 #include <set>
+#include <vector>
+#include <random>
 
 //returns the number of times a character occurs in a string
 int count(const char &c, const std::string &board);
@@ -20,6 +22,8 @@ bool three_in_row(const char &xo, const std::string &board);
 
 //returns a set of all the moves after board
 std::set<std::string> next_moves(const std::string &board);
+
+int next_random_move_index(const std::string &board);
 
 //the string in the pair is the best possible move
 //the int is the best garenteed outcome

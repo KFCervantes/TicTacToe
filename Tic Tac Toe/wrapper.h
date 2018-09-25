@@ -15,8 +15,12 @@
 //returns bool and says who wins in UTF8 using std::cout
 + (bool) game_over:(NSString *)board;
 
++ (int) next_easy_move_index:(NSString *)board;
+
++ (int) next_medi_move_index:(NSString *)board;
+
 //returns the index of where the next move should be
-+ (int) next_best_move_index:(NSString *)board;
++ (int) next_hard_move_index:(NSString *)board;
 
 //returns the character whose turn it is
 + (NSString *) whose_turn:(NSString *)board;
