@@ -22,9 +22,7 @@
 	(number_of_spaces % 2) ? (xo = 'O') : (xo = 'X');
 	
 	//returns true if someone wins or if game is draw
-	if (three_in_row(xo, std_board) || !number_of_spaces) return true;
-	
-	return false;
+	return (three_in_row(xo, std_board) || !number_of_spaces);
 }
 
 + (int) next_easy_move_index:(NSString *)board {return next_random_move_index([board UTF8String]);}
